@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+<title>About us</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="CareMed demo project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+<link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/about.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/about_responsive.css' %}">
+
+<style>
+	.logo_link .logo img {
+		height: 90px;
+		width: 90px;
+		margin-left: 20px;
+	}
+	.logo_sub {
+		font-size: 16px;
+		text-align: center;
+		margin-bottom: 15px;
+		padding-bottom: 10px;
+	}
+	@media(max-width:600px) {
+		.logo_sub {
+			padding: 15px 0;
+			margin-left: 3px;
+		}
+	}
+</style>
+
+
+</head>
+<body>
+
+<div class="super_container">
+	
+	<!-- Header -->
+
+	<header class="header trans_200">
+
+		<!-- Top Bar -->
+		<div class="top_bar">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="top_bar_content d-flex flex-row align-items-center justify-content-start">
+							<div class="top_bar_item"><a href="#">FAQ</a></div>
+							<div class="top_bar_item"><a href="#">Request an Appointment</a></div>
+							<div class="dropdown ml-auto">
+								<button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								  Til o'zgartirish
+								</button>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+								  <button class="dropdown-item" type="button">O'zbek tili</button>
+								  <button class="dropdown-item" type="button">Rus tili</button>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Header Content -->
+		<div class="header_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="header_content d-flex flex-row align-items-center justify-content-start">
+							<nav class="main_nav ml-auto">
+								<ul>
+									<li><a href="{% url 'home:index' %}">Bosh sahifa</a></li>
+									<li><a href="{% url 'home:about' %}">Biz Haqimizda</a></li>
+									<li><a href="{% url 'home:service' %}">Xizmatlar</a></li>
+									<li><a href="{% url 'home:news' %}">Yangiliklar</a></li>
+									<li><a href="{% url 'home:contact' %}">Aloqa uchun</a></li>
+									<li><a href="{% url 'home:video' %}">Video Maslahatlar</a></li>
+									{% if user.is_authenticated %}
+                                    <li><a href="{% url 'user:profile' %}">Shaxsiy Kabinet</a></li>
+                                    <li><a href="{% url 'user:logout' %}">Tizimdan chiqish</a></li>
+                                  	{% else %}
+                                    <li ><a href="{% url 'user:login' %}">Kirish</a></li>
+                                  	{% endif %}
+								</ul>
+							</nav>
+							<div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Logo -->
+		<div class="logo_container_outer">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="logo_container">
+							<div class="logo_content d-flex flex-column align-items-start justify-content-center">
+								<a class="logo_link" href="{% url 'home:index' %}">
+									<div class="logo">
+										<img src="{% static 'img/logo.jpg' %}" alt="University logo">
+									</div>
+								</a>
+								<div class="logo_sub">Tibbiyot Markazi</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</header>
+
+	<!-- Menu -->
+
+	<div class="menu_container menu_mm">
+
+		<!-- Menu Close Button -->
+		<div class="menu_close_container">
+			<div class="menu_close"></div>
+		</div>
+
+		<!-- Menu Items -->
+		<div class="menu_inner menu_mm">
+			<div class="menu menu_mm">
+				<ul class="menu_list menu_mm">
+                                	                                <li  class="menu_item menu_mm"><a href="{% url 'home:index' %}">Bosh sahifa</a></li>
+                                                                        <li  class="menu_item menu_mm"><a href="{% url 'home:about' %}">Biz Haqimizda</a></li>
+                                                                        <li  class="menu_item menu_mm"><a href="{% url 'home:service' %}">Xizmatlar</a></li>
+                                                                        <li  class="menu_item menu_mm"><a href="{% url 'home:news' %}">Yangiliklar</a></li>
+                                                                        <li  class="menu_item menu_mm"><a href="{% url 'home:contact' %}">Aloqa uchun</a></li>
+                                    <li  class="menu_item menu_mm"><a href="{% url 'home:video' %}">Video Maslahatlar</a></li>
+                                                                        {% if user.is_authenticated %}
+                                    <li  class="menu_item menu_mm"><a href="{% url 'user:profile' %}">Shaxsiy Kabinet</a></li>
+                                    <li  class="menu_item menu_mm"><a href="{% url 'user:logout' %}">Tizimdan chiqish</a></li>
+                                        {% else %}
+                                    <li  class="menu_item menu_mm"><a href="{% url 'user:login' %}">Kirish</a></li>
+                                        {% endif %}
+
+				</ul>
+			</div>
+			<div class="menu_extra">
+				<div class="menu_appointment"><a href="#">Request an Appointment</a></div>
+				<div class="menu_emergencies">aloqa uchun: +998 88 613 40 44</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- Home -->
+
+	<div class="home">
+		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="{% static 'images/about.jpg' %}" data-speed="0.8"></div>
+		<div class="home_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="home_content">
+							<div class="home_title">Patranaj<span>Haqida</span></div>
+							<div class="breadcrumbs">
+								<ul>
+									<li><a href="#">Bosh sahifa</a></li>
+									<li>Patranaj haqida</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- About -->
+
+	<div class="about">
+		<div class="container">
+			<div class="row">
+
+				<!-- About Content -->
+				<div class="col-lg-8">
+					<div class="section_title"><h2>Ehtiyojlaringizga yordam beradigan tibbiy guruh</h2></div>
+					<div class="about_text">
+						<p>Sizning ehtiyojlaringizga yordam beradigan ajoyib tibbiy guruhlar dunyoda ko'p mavjud. Bu guruhlar sizga sizning ehtiyojlaringizga mos keladigan tibbiy yordam berish uchun xizmat qilishadi. Bu guruhlarning ba'zi xususiyatlari quyidagilardir:
+
+Yordam berish joyi: Bir nechta tibbiy guruhlar onlayn platformalarda, telefonda yoki shaxsiy tadbirlarda ehtiyojlarga yordam berishadi. Bu guruhlar sizning muayyan tibbiy masalalaringizni hal qilishda yordam berishadi.</p>
+						<p>Yordam beruvchilar: Bu tibbiy guruhlar tabiblar, shifokorlar, pediatrlar, psixologlar, tibbiy texnologlar va boshqa tibbiy mutaxassislar tomonidan tashkil qilinadi.
+
+Xizmatlar: Bu guruhlar sizning ehtiyojlaringizga mos keladigan xizmatlar ko'rsatishadi, masalan, psixologik yordam, dietologik tavsiyalar, tibbiy tahlil va davolarni taqdim etish kabi.Yo'nalish: Bir nechta tibbiy guruhlar odamlarning turli turdagi ehtiyojlari uchun yo'nalishlarga ega. Masalan, ayollarga xususiy yordam berishadi, yosh bola va chaqaloqlar uchun xizmat ko'rsatishadi va boshqa turli turdagi yo'nalishlarga mos keladi.
+
+Nogironlik holatlari: Bazi tibbiy guruhlar nogironlik holatlari uchun tashkil qilingan, masalan, aholi o'rtasida turli turdagi epidemiyalar, shirin suv ko'pincha kasalligi va boshqalar kabi. Bu guruhlar ogohlantirishlar va o'qitishlar taqdim etishadi, shuningdek, insonlarning bu holatlardan himoya qilish uchun kerakli tavsiyalarni beradi.
+
+</p>
+					</div>
+					<div class="row loaders_container">
+						<div class="col-md-3 loader_col">
+							<!-- Loader -->
+							<div class="loader" data-perc="0.97"><span>Qattiq mehnat</span></div>
+						</div>
+						<div class="col-md-3 loader_col">
+							<!-- Loader -->
+							<div class="loader" data-perc="0.95"><span>Ishtiyoq</span></div>
+						</div>
+						<div class="col-md-3 loader_col">
+							<!-- Loader -->
+							<div class="loader" data-perc="0.94"><span>Kuchli mehnat</span></div>
+						</div>
+						<div class="col-md-3 loader_col">
+							<!-- Loader -->
+							<div class="loader" data-perc="0.99"><span>harakat</span></div>
+						</div>
+					</div>
+					<div class="button about_button"><a href="#">Ko'proq o'qish</a></div>
+				</div>
+
+				<!-- Boxes -->
+				<div class="col-lg-4 boxes_col">
+
+					<!-- Box -->
+					<div class="box working_hours">
+						<div class="box_icon d-flex flex-column align-items-start justify-content-center"><div style="width:29px; height:29px;"><img src="{% static 'images/alarm-clock.svg' %}" alt=""></div></div>
+						<div class="box_title">Ish Vaqti</div>
+						<div class="working_hours_list">
+							<ul>
+								<li class="d-flex flex-row align-items-center justify-content-start">
+									<div>Dushanba – Jumma</div>
+									<div class="ml-auto">8.00 – 19.00</div>
+								</li>
+								<li class="d-flex flex-row align-items-center justify-content-start">
+									<div>Shanba</div>
+									<div class="ml-auto">9.30 – 17.00</div>
+								</li>
+								<li class="d-flex flex-row align-items-center justify-content-start">
+									<div>Yakshanba</div>
+									<div class="ml-auto">9.30 – 15.00</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Box -->
+					<div class="box box_appointments">
+						<div class="box_icon d-flex flex-column align-items-start justify-content-center"><div style="width: 29px; height:29px;"><img src="{% static 'images/phone-call.svg' %}" alt=""></div></div>
+						<div class="box_title">Appointments</div>
+						<div class="box_text">Tibbiyot sohasida uchrashuvlar bemorni parvarish qilishning hal qiluvchi qismidir. Tibbiy uchrashuvlar bemor va shifokor, hamshira yoki boshqa tibbiyot xodimlari kabi sog'liqni saqlash mutaxassisi o'rtasidagi</div>
+					</div>
+
+					<!-- Box -->
+					<div class="box box_emergency">
+						<div class="box_icon d-flex flex-column align-items-start justify-content-center"><div style="width: 37px; height:37px; margin-left:-4px;"><img src="{% static 'images/bell.svg' %}" alt=""></div></div>
+						<div class="box_title">Favqulodda vaziyatlar</div>
+						<div class="box_phone">+998 88 613 40 44</div>
+						<div class="box_emergency_text">Tibbiyot sohasidagi favqulodda vaziyatlar shoshilinch tibbiy yordam va davolanishni talab qiladigan favqulodda yoki hayot uchun</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Testimonials -->
+
+	<div class="testimonials">
+		<div class="testimonials_background parallax-window" data-parallax="scroll" data-image-src="{% static 'images/testimonials.jpg' %}" data-speed="0.8"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="section_title section_title_light"><h2>Bemor guvohliklari</h2></div>
+				</div>
+			</div>
+			<div class="row test_row">
+
+				<!-- Testimonial -->
+				<div class="col-lg-6 test_col">
+					<div class="testimonial">
+						<div class="test_icon d-flex flex-column align-items-center justify-content-center"><img src="{% static 'images/quote.png' %}" alt=""></div>
+						<div class="test_text">Bemor guvohliklari - bu tibbiy yordam yoki davolanishni olgan bemorlarning fikr-mulohazalari. Ushbu guvohliklar qimmatlidir, chunki ular bemorning tajribasi haqida tushuncha beradi va tibbiy yordam yoki davolanishni so'ragan boshqalarga ongli qarorlar qabul qilishda yordam berishi mumkin.</div>
+						<div class="test_author d-flex flex-row align-items-center justify-content-start">
+							<div class="test_author_image"><div><img src="{% static 'images/test_1.jpg' %}" alt=""></div></div>
+							<div class="test_author_name"><a href="#">Miss Misis</a>, <span>Bemor</span></div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Testimonial -->
+				<div class="col-lg-6 test_col">
+					<div class="testimonial">
+						<div class="test_icon d-flex flex-column align-items-center justify-content-center"><img src="{% static 'images/quote.png' %}" alt=""></div>
+						<div class="test_text">Bemorning guvohliklari bemorning shifokor yoki tibbiyot xodimlari bilan bo'lgan tajribasi, davolash samaradorligi, muassasalarning sifati va olingan yordamdan umumiy qoniqish kabi turli xil ma'lumotlarni o'z ichiga olishi mumkin. Ushbu guvohliklarni tibbiy ko'rib chiqish veb-saytlari, ijtimoiy media va tibbiy provayderlarning veb-saytlari kabi turli platformalarda topish mumkin.</div>
+						<div class="test_author d-flex flex-row align-items-center justify-content-start">
+							<div class="test_author_image"><div><img src="{% static 'images/test_2.jpg' %}" alt=""></div></div>
+							<div class="test_author_name"><a href="#">Alijon Haqberdiyev</a>, <span>Bemor</span></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Team -->
+
+	<div class="team">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="section_title"><h2>Tibbiy jamoamiz bilan tanishing</h2></div>
+				</div>
+			</div>
+			<div class="row team_row">
+
+				<!-- Team Member -->
+				<div class="col-lg-3 team_col">
+					<div class="team_member">
+						<div class="team_member_image d-flex flex-column align-items-center justify-content-end"><img src="{% static 'images/team_1.png' %}" alt=""></div>
+						<div class="team_member_info">
+							<div class="team_member_name"><a href="#">Dr. Melissa Smith</a></div>
+							<div class="team_member_title">Kardiolog</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Team Member -->
+				<div class="col-lg-3 team_col">
+					<div class="team_member">
+						<div class="team_member_image d-flex flex-column align-items-center justify-content-end"><img src="{% static 'images/team_2.png' %}" alt=""></div>
+						<div class="team_member_info">
+							<div class="team_member_name"><a href="#">Dr. Ali Haqberdi</a></div>
+							<div class="team_member_title">Plastik Jarroh</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Team Member -->
+				<div class="col-lg-3 team_col">
+					<div class="team_member">
+						<div class="team_member_image d-flex flex-column align-items-center justify-content-end"><img src="{% static 'images/team_3.png' %}" alt=""></div>
+						<div class="team_member_info">
+							<div class="team_member_name"><a href="#">Dr. Christinne Jones</a></div>
+							<div class="team_member_title">Pediatr</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Team Member -->
+				<div class="col-lg-3 team_col">
+					<div class="team_member">
+						<div class="team_member_image d-flex flex-column align-items-center justify-content-end"><img src="{% static 'images/team_4.png' %}" alt=""></div>
+						<div class="team_member_info">
+							<div class="team_member_name"><a href="#">Dr. Barot To'rayev</a></div>
+							<div class="team_member_title">Umumiy amaliyot</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Call to action -->
+
+	<div class="cta">
+		<div class="cta_background parallax-window" data-parallax="scroll" data-image-src="{% static 'images/cta.jpg' %}" data-speed="0.8"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="cta_content text-center">
+						<h2>Shaxsiy salomatlik rejasi kerakmi?</h2>
+						<p>Shaxsiy salomatlik rejasi, kishilarga salomatlikni saqlash uchun o'zini boshqarishda yordam beradigan tadbirlarni o'z ichiga olgan bir qator amallar</p>
+						<div class="button cta_button"><a href="#">rejasini so'rash</a></div>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</div>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="footer_container">
+			<div class="container">
+				<div class="row">
+
+					<!-- Footer - About -->
+					<div class="col-lg-4 footer_col">
+						<div class="footer_about">
+							<div class="footer_about_text">
+								<p>Lorem ipsum dolor sit amet, conse ctetur adipiscing elit. Curabitur ante leo, finibus quis est ut, tempor tincidunt ipsum.</p>
+							</div>
+							<ul class="footer_about_list">
+								<li><div class="footer_about_icon"><img src="{% static 'images/phone-call.svg' %}" alt=""></div><span>+45 677 8993000 223</span></li>
+								<li><div class="footer_about_icon"><img src="{% static 'images/envelope.svg' %}" alt=""></div><span>office@template.com</span></li>
+								<li><div class="footer_about_icon"><img src="{% static 'images/placeholder.svg' %}" alt=""></div><span>Main Str. no 45-46, b3, 56832, Los Angeles, CA</span></li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Footer - Links -->
+					<div class="col-lg-4 footer_col">
+						<div class="footer_links footer_column">
+							<div class="footer_title">Useful Links</div>
+							<ul>
+								<li><a href="#">Testimonials</a></li>
+								<li><a href="#">FAQ</a></li>
+								<li><a href="#">Apply for a Job</a></li>
+								<li><a href="#">Terms & Conditions</a></li>
+								<li><a href="#">Our Partners</a></li>
+								<li><a href="#">Services</a></li>
+								<li><a href="#">Free services</a></li>
+								<li><a href="#">About us</a></li>
+								<li><a href="#">News</a></li>
+								<li><a href="#">Contact</a></li>
+								<li><a href="#">Our Screening Program</a></li>
+								<li><a href="#">FAQ</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Footer - News -->
+					<div class="col-lg-4 footer_col">
+						<div class="footer_news footer_column">
+							<div class="footer_title">Useful Links</div>
+							<ul>
+								<li>
+									<div class="footer_news_title"><a href="news.html">Aliquam ac eleifend metus</a></div>
+									<div class="footer_news_date">March 10, 2018</div>
+								</li>
+								<li>
+									<div class="footer_news_title"><a href="news.html">Donec in libero sit amet mi vulputate</a></div>
+									<div class="footer_news_date">March 10, 2018</div>
+								</li>
+								<li>
+									<div class="footer_news_title"><a href="news.html">Aliquam ac eleifend metus</a></div>
+									<div class="footer_news_date">March 10, 2018</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="copyright">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="copyright_content d-flex flex-lg-row flex-column align-items-lg-center justify-content-start">
+							<div class="cr"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
+							<div class="footer_social ml-lg-auto">
+								<ul>
+									<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+</div>
+
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/TweenMax.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/TimelineMax.min.js' %}"></script>
+<script src="{% static 'plugins/scrollmagic/ScrollMagic.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/animation.gsap.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/ScrollToPlugin.min.js' %}"></script>
+<script src="{% static 'plugins/progressbar/progressbar.min.js' %}"></script>
+<script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
+<script src="{% static 'plugins/easing/easing.js' %}"></script>
+<script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+<script src="{% static 'js/about.js' %}"></script>
+
+</body>
+</html>
